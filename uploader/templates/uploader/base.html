@@ -1,0 +1,240 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en" >
+    <!-- begin::Head -->
+    <head>
+        <meta charset="utf-8" />
+        <title>FileUploader</title>
+        <meta name="description" content="Latest updates and statistic charts">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <!--begin::Web font -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+        <script>
+          WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+          });
+        </script>
+        <!--end::Web font -->
+        <!--begin::Global Theme Styles -->
+        <link href="{% static 'assets/vendors/base/vendors.bundle.css' %}"
+              rel="stylesheet"
+              type="text/css" />
+        <link href="{% static 'assets/demo/default/base/style.bundle.css' %}"
+              rel="stylesheet"
+              type="text/css" />
+        <!--end::Global Theme Styles -->
+        <!--begin::Page Vendors Styles -->
+        <link href="{% static 'assets/vendors/custom/fullcalendar/fullcalendar.bundle.css' %}"
+              rel="stylesheet"
+              type="text/css" />
+        <!--end::Page Vendors Styles -->
+        <link href="{% static 'assets/demo/default/media/img/logo/report.svg' %}"
+              rel="shortcut icon">
+        <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+        <link href="{% static 'style.css' %}"
+              rel="stylesheet"
+              type="text/css" />
+    </head>
+    <!-- end::Head -->
+    <!-- begin::Body -->
+    <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-aside-left--minimize m-brand--minimize m-footer--push m-aside--offcanvas-default"  >
+    <!-- begin:: Page -->
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <!-- BEGIN: Header -->
+        <header id="m_header" class="m-grid__item    m-header "  m-minimize-offset="200" m-minimize-mobile-offset="200" >
+            <div class="m-container m-container--fluid m-container--full-height">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <!-- BEGIN: Brand -->
+                    <div class="m-stack__item m-brand  m-brand--skin-dark ">
+                        <div class="m-stack m-stack--ver m-stack--general">
+                            <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                                <a href="" class="m-brand__logo-wrapper m--font-light display-logo">
+                                    FileUploader
+                                </a>
+                            </div>
+                            <div class="m-stack__item m-stack__item--middle m-brand__tools">
+                                <!-- BEGIN: Left Aside Minimize Toggle -->
+                                <a class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block m-brand__toggler--active" href="javascript:;" id="m_aside_left_minimize_toggle"><span></span></a>
+                                <!-- END -->
+                                <!-- BEGIN: Responsive Aside Left Menu Toggler -->
+                                <a class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block" href="javascript:;" id="m_aside_left_offcanvas_toggle"><span></span></a>
+                                <!-- END -->
+                                <!-- BEGIN: Topbar Toggler -->
+                                <a class="m-brand__icon m--visible-tablet-and-mobile-inline-block" href="javascript:;" id="m_aside_header_topbar_mobile_toggle"><i class="flaticon-more"></i></a>
+                                <!-- BEGIN: Topbar Toggler -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: Brand -->
+                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                        <!-- BEGIN: Topbar -->
+                        <div class="m-topbar m-stack m-stack--ver m-stack--general m-stack--fluid" id="m_header_topbar">
+                            <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
+                                <div class="m-stack__item m-topbar__nav-wrapper">
+                                    <ul class="m-topbar__nav m-nav m-nav--inline">
+                                        <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click" aria-expanded="true">
+                                            <a href="#" class="m-nav__link m-dropdown__toggle">
+                                                    <span class="m-topbar__userpic">
+                                                    <img src="{% static 'assets/demo/default/media/img/misc/project.png' %}" class="m--img-rounded m--marginless" alt="">
+                                                </span>
+                                                <span class="m-topbar__username m--hide">{{ user.username }}</span>
+                                            </a>
+                                            <div class="m-dropdown__wrapper" style="z-index: 101;">
+                                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 12.5px;"></span>
+                                                <div class="m-dropdown__inner">
+                                                    <div class="m-dropdown__header m--align-center background-image">
+                                                        <div class="m-card-user m-card-user--skin-dark">
+                                                            <div class="m-card-user__details">
+                                                                <span class="m-card-user__name m--font-weight-500 m--font-light">{{ user.username }}</span>
+                                                                <a href="" class="m-card-user__email m--font-weight-300 m-link m--font-light">{{ user.email }}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="m-dropdown__body">
+                                                        <div class="m-dropdown__content">
+                                                        {% if user.is_authenticated %}
+                                                            <ul class="m-nav m-nav--skin-light">
+                                                                <li class="m-nav__item">
+                                                                    <a href="{% url 'logout' %}" class="m-nav__link">
+                                                                        <i class="m-nav__link-icon flaticon-logout"></i>
+                                                                        <span class="m-nav__link-text">Выйти</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        {% else %}
+                                                            <ul class="m-nav m-nav--skin-light">
+                                                                <li class="m-nav__item">
+                                                                    <a href="{% url 'login' %}" class="m-nav__link">
+                                                                        <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                        <span class="m-nav__link-text">Войти</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="m-nav__item">
+                                                                    <a href="{% url 'register' %}" class="m-nav__link">
+                                                                        <i class="m-nav__link-icon flaticon-add-circular-button"></i>
+                                                                        <span class="m-nav__link-text">Зарегистрироваться</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Topbar -->
+                    </div>
+                </div>
+            </div>
+        </header>
+    <!-- END: Header -->
+    <!-- begin::Body -->
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+            <!-- BEGIN: Left Aside -->
+            <button class="m-aside-left-close m-aside-left-close--skin-dark" id="m_aside_left_close_btn"><i class="la la-close"></i></button>
+            <div class="m-grid__item m-aside-left m-aside-left--skin-dark" id="m_aside_left">
+                <!-- BEGIN: Aside Menu -->
+                <div class="m-aside-menu m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark" id="m_ver_menu" style="position: relative;">
+                    <ul class="m-menu__nav m-menu__nav--dropdown-submenu-arrow">
+                        <li aria-haspopup="true" class="m-menu__item">
+                            <a class="m-menu__link" href="/">
+                                <i class="m-menu__link-icon flaticon-file-2"></i>
+                                <span class="m-menu__link-title">
+                                    <span class="m-menu__link-wrap">
+                                        <span class="m-menu__link-text">Все файлы</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li aria-haspopup="true" class="m-menu__item">
+                            <a class="m-menu__link" href="{% url 'user_post_list' %}">
+                                <i class="m-menu__link-icon flaticon-file"></i>
+                                <span class="m-menu__link-title">
+                                    <span class="m-menu__link-wrap">
+                                        <span class="m-menu__link-text">Мои файлы</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li aria-haspopup="true" class="m-menu__item">
+                            <a class="m-menu__link" href="{% url 'tag_list' %}">
+                                <i class="m-menu__link-icon flaticon-notes"></i>
+                                <span class="m-menu__link-title">
+                                    <span class="m-menu__link-wrap">
+                                        <span class="m-menu__link-text">Каталог тегов</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li aria-haspopup="true" class="m-menu__item">
+                            <a class="m-menu__link" href="{% url 'about' %}">
+                                <i class="m-menu__link-icon flaticon-earth-globe"></i>
+                                <span class="m-menu__link-title">
+                                    <span class="m-menu__link-wrap">
+                                        <span class="m-menu__link-text">О сайте</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END: Aside Menu -->
+            </div>
+            <!-- END: Left Aside -->
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <!--begin::Form-->
+                {% block content %}
+                {% endblock %}
+                <!--end::Form-->
+            </div>
+        </div>
+    <!-- end:: Body -->
+    <!-- begin::Footer -->
+    <footer class="m-grid__item m-footer">
+        <div class="m-container m-container--fluid m-container--full-height m-page__container">
+            <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+                    <span class="m-footer__copyright">2018 &copy; <a class="m-link" href="mailto:freckled.cellofun@gmail.com">Хусаинова Олеся</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end::Footer -->
+    </div>
+    <!-- end:: Page -->
+    <!-- begin::Scroll Top -->
+    <div id="m_scroll_top" class="m-scroll-top">
+        <i class="la la-arrow-up"></i>
+    </div>
+    <!-- end::Scroll Top -->
+    <!--begin::Global Theme Bundle -->
+    <script src="{% static 'assets/vendors/base/vendors.bundle.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/demo/default/base/scripts.bundle.js' %}" type="text/javascript"></script>
+    <!--end::Global Theme Bundle -->
+    <!--begin::Page Vendors -->
+    <script src="{% static 'assets/vendors/custom/fullcalendar/fullcalendar.bundle.js' %}" type="text/javascript"></script>
+    <!--end::Page Vendors -->
+    </body>
+    <!-- end::Body -->
+</html>

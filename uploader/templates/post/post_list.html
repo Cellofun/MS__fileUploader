@@ -1,0 +1,111 @@
+{% extends 'uploader/base.html' %}
+
+{% block content %}
+
+    <div class="m-subheader">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">Все файлы</h3>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Все файлы
+                        </h3>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                            <li class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover">
+                                <a href="{% url 'post_new' %}" class="m-portlet__nav-link btn btn-sm m-btn--pill btn-success m-btn">
+                                    <i class="la la-plus"></i>
+                                    <span>Добавить файл</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <form method="GET" action="">
+                <div class="m-portlet__body">
+                    <div class="m-section">
+                        <div class="m-section__content">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label align-right">Описание</label>
+                                <div class="col-lg-8">
+                                    <input name="q" type="text" class="form-control m-input" />
+                                </div>
+                            </div>
+                            <div class="form-group row m--margin-bottom-60">
+                                <label class="col-lg-4 col-form-label"></label>
+                                <div class="col-lg-8">
+                                    <input type="submit" class="btn m-btn--pill btn-outline-primary" value="Найти"/>
+                                </div>
+                            </div>
+                            <table class="table m-table m-table--head-bg-primary table-responsive-sm table-responsive-lg">
+                                <thead>
+                                    <tr>
+                                        <th>Описание</th>
+                                        <th>Автор</th>
+                                        <th>Теги</th>
+                                        <th width="100px">Действие</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for post in posts %}
+                                    <tr>
+                                        <td>{{ post.title }}</td>
+                                        <td>{{ post.author }}</td>
+                                        <td>{% include "uploader/tag.html" with tags=post.tags.all %}
+                                        <td class="align-center">
+                                            <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                                                <a href="#" class="m-portlet__nav-link m-dropdown__toggle dropdown-toggle btn btn-sm m-btn--pill btn-secondary m-btn m-btn--label-brand"></a>
+                                                <div class="m-dropdown__wrapper" style="z-index: 101;">
+                                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 38.5px;"></span>
+                                                    <div class="m-dropdown__inner">
+                                                        <div class="m-dropdown__body">
+                                                            <div class="m-dropdown__content">
+                                                                <ul class="m-nav">
+                                                                    <li class="m-nav__item">
+                                                                        <a href="{% url 'download' pk=post.id %}" class="m-nav__link">
+                                                                            <span class="m-nav__link-text dropdown-equalizer">Скачать</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    {% if request.user.is_superuser %}
+                                                                        <li class="m-nav__item">
+                                                                            <a href="{% url 'post_delete' pk=post.id %}" class="m-nav__link">
+                                                                                <span class="m-nav__link-text dropdown-equalizer">Удалить</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    {% endif %}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td class="align-center m--padding-top-15" colspan="4">Файлы отсутствуют
+                                            <i class="fa fa-frown"></i>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

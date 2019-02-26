@@ -1,0 +1,89 @@
+{% extends 'uploader/base.html' %}
+
+{% block content %}
+
+    <div class="m-subheader">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">Поиск по тегу</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item">
+                        <a href="/" class="m-nav__link m-nav__link--icon">
+						   <i class="m-nav__link-icon la la-home"></i>
+						</a>
+                    </li>
+                    <li class="m-nav__separator home-equalizer">-</li>
+                    <li class="m-nav__item">
+                        <a class="m-nav__link" href="{% url 'tag_list' %}">
+                            <span class="m-nav__link-text">Каталог тегов</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Тег: {{ tag_name }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-section">
+                    <div class="m-section__content">
+                        <table class="table m-table m-table--head-bg-primary table-responsive-sm table-responsive-lg">
+                            <thead>
+                            <tr>
+                                <th>Описание</th>
+                                <th>Автор</th>
+                                <th width="100px">Действие</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for post in tag_posts %}
+                                <tr>
+                                    <td>{{ post.title }}</td>
+                                    <td>{{ post.author }}</td>
+                                    <td class="align-center">
+                                        <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+                                            <a href="#" class="m-portlet__nav-link m-dropdown__toggle dropdown-toggle btn btn-sm m-btn--pill btn-secondary m-btn m-btn--label-brand"></a>
+                                            <div class="m-dropdown__wrapper" style="z-index: 101;">
+                                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 38.5px;"></span>
+                                                <div class="m-dropdown__inner">
+                                                    <div class="m-dropdown__body">
+                                                        <div class="m-dropdown__content">
+                                                            <ul class="m-nav">
+                                                                <li class="m-nav__item">
+                                                                    <a href="{% url 'download' pk=post.id %}" class="m-nav__link">
+                                                                        <span class="m-nav__link-text dropdown-equalizer">Скачать</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td class="align-center m--padding-top-15" colspan="4">Файлы по данному тегу отсутствуют
+                                        <i class="fa fa-frown"></i>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

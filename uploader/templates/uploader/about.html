@@ -1,0 +1,87 @@
+{% extends 'uploader/base.html' %}
+
+{% block content %}
+
+    <div class="m-subheader">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">О сайте</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item">
+                        <a href="/" class="m-nav__link m-nav__link--icon">
+						   <i class="m-nav__link-icon la la-home"></i>
+						</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            О сайте
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-section">
+                    <div class="m-section__content">
+                        <div class="form-group row col-form-label">
+                            <label class="col-lg-4 align-right">Задание</label>
+                            <span class="col-sm-8">Данный веб-сайт был создан в качестве курсовой работы по дисциплине "Современные платформы программирования" и включает следуюший функционал:
+                                <ul style="margin-top: 1em;">
+                                    <li>добавление файлов авторизованными пользователями</li>
+                                    <li>скачивание файлов всеми пользователями, в том числе невторизованными</li>
+                                    <li>изменение файлов только теми пользователями, которые их загрузили</li>
+                                    <li>удаление файлов пользователями, которые их загрузили, а также администраторами</li>
+                                    <li>поиск файлов по их описанию</li>
+                                    <li>фильтрация файлов по тегам</li>
+                                    <li>каталог тегов</li>
+                                    <li>добавление тегов администраторами</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Контакты
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-section">
+                    <div class="m-section__content">
+                        <div class="form-group row col-form-label">
+                            <label class="col-lg-4 align-right">Студент</label>
+                            <span class="col-sm-8">Хусаинова Олеся</span>
+                        </div>
+                        <div class="form-group row col-form-label">
+                            <label class="col-lg-4 align-right">Группа</label>
+                            <span class="col-sm-8">8ВМ81</span>
+                        </div>
+                        <div class="form-group row col-form-label">
+                            <label class="col-lg-4 align-right">E-mail</label>
+                            <span class="col-sm-8">freckled.cellofun@gmail.com</span>
+                        </div>
+                        <div class="form-group row col-form-label">
+                            <label class="col-lg-4 align-right">Телефон</label>
+                            <span class="col-sm-8">+7 913 856 89 18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

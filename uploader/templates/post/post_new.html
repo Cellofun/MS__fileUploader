@@ -1,0 +1,72 @@
+{% extends "uploader/base.html" %}
+
+{% block content %}
+
+    <div class="m-subheader">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">Добавление файла</h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item">
+                        <a href="/" class="m-nav__link m-nav__link--icon">
+						   <i class="m-nav__link-icon la la-home"></i>
+						</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="m-content">
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Добавление файла
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="m-portlet__body">
+                    <div class="m-section">
+                        <div class="m-section__content">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label align-right">Описание <span class="required">*</span></label>
+                                <div class="col-lg-8">
+                                    <input class="form-control m-input" {{ form.title }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label align-right">Теги</label>
+                                <div class="col-lg-8">
+                                    <select multiple="" class="form-control m-input" {{ form.tags }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label align-right">Файл <span class="required">*</span></label>
+                                <div class="col-lg-8">
+                                    <input type="file" class="custom-file-input" id="customFile" {{ form.upload }}
+                                    <label class="custom-file-label" for="customFile">Выберите файл</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__foot m-portlet__foot--fit">
+                    <div class="m-form__actions">
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8">
+                                <input type="submit" class="btn btn-primary" value="Добавить"/>
+                                <a href="/" class="btn btn-secondary">Отмена</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
