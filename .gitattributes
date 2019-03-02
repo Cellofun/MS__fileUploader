@@ -1,6 +1,4 @@
-special-vendored-path/* linguist-vendored
-*.js linguist-vendored=false
-*.html linguist-vendored=false
-*.css linguist-vendored=false
+file-uploader__python/uploader/templates/* linguist-documentation=false
+file-uploader__python/uploader/static/* linguist-documentation=false
 
 *.py linguist-language=Python
